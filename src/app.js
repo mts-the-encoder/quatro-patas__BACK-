@@ -8,7 +8,7 @@ const router = express.Router();
 //|-/ DbConnect - Mongo
 const dbUser = 'mts';
 const dbPasswd = 'urubu100';
-mongoose.connect(`mongodb+srv://${dbUser}:${dbPasswd}@quatropatas.zjhon.mongodb.net/Data`)
+mongoose.connect(`mongodb+srv://${dbUser}:${dbPasswd}@quatropatas.zjhon.mongodb.net/Data`);
 
 
 //|-/ Routes

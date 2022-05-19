@@ -20,7 +20,7 @@ module.exports = router;
     Cidade
     Estado
     Telefone
--Pet
+-Pets
     Nome
     Especie
     Raça
