@@ -29,3 +29,12 @@ module.exports = router;
     Favorito
     Status
 */
+
+//d13b382601cbba33674a5f41223869b7b2b70ef988d36d8db92f094762c61d5b
+
+// id SERIAL PRIMARY KEY,
+// name VARCHAR(100) NOT NULL,
+// adress VARCHAR(75) NOT NULL,
+// city VARCHAR(50) NOT NULL,
+// state VARCHAR(35) NOT NULL,
+// phone VARCHAR(20) NOT NULL);
