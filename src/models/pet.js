@@ -9,6 +9,11 @@ const schema = new Schema({
         required: true,
         trim: true
     },
+    gender: {
+        type: String,
+        required: true,
+        trim: true
+    },
     species: {
         type: String,
         required: true,
