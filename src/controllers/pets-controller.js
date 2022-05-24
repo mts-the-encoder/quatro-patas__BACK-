@@ -66,13 +66,39 @@ exports.post = (req, res, next) => {
 }
 
 exports.put = (req, res, next) => {
-    const id = req.body.id;
-    res.status(200).send({
-        id: id,
-        item: req.body
-    });
+    Pet
+        .findByIdAndUpdate(req.params.id, {
+            $set: {
+                name: req.body.name,
+                age: req.body.age,
+                city: req.body.city,
+                favorite: req.body.favorite,
+                status: req.body.status,
+                image: req.body.image
+            }
+        }).then(x => {
+            res.status(200).send({
+                message: 'Pet atualizado!'
+            });
+        }).catch(e => {
+            res.status(400).send({
+                message: 'Falha ao atualizar...',
+                data: e
+            });
+        });
 }
 
 exports.delete = (req, res, next) => {
-    res.status(200).send(req.body);
+    Pet
+        .findOneAndRemove(req.body.id)
+        .then(x => {
+            res.status(200).send({
+                message: 'Pet removido!'
+            });
+        }).catch(e => {
+            res.status(400).send({
+                message: 'Falha ao remover Pet...',
+                data: e
+            });
+        });
 }
