@@ -7,11 +7,11 @@ exports.get = (req, res, next) => {
     Pet
         .find({
             active: true
-        }, 'name gender species breed age city favorite status image')
+        }, 'name gender species breed favorite status image')
         .then(data => {
             res.status(201).send(data);
         }).catch(e => {
-            res.status(400).send({ message: 'falha ao cadastrar!', data: e });
+            res.status(400).send(e);
         });
 }
 
@@ -20,24 +20,24 @@ exports.getByName = (req, res, next) => {
         .findOne({
             name: req.params.name,
             active: true
-        }, 'name gender species breed age city favorite status image')
+        }, 'name gender species breed favorite status image')
         .then(data => {
             res.status(201).send(data);
         }).catch(e => {
-            res.status(400).send({ message: 'falha ao cadastrar!', data: e });
+            res.status(400).send(e);
         });
 }
 
 exports.getBySpecie = (req, res, next) => {
     Pet
-        .findOne({
+        .find({
             species: req.params.species,
             active: true
-        }, 'name gender species breed age city favorite status image')
+        }, 'name gender species breed favorite status image')
         .then(data => {
             res.status(201).send(data);
         }).catch(e => {
-            res.status(400).send({ message: 'falha ao cadastrar!', data: e });
+            res.status(400).send(e);
         });
 }
 
@@ -50,7 +50,7 @@ exports.getByFav = (req, res, next) => {
         .then(data => {
             res.status(201).send(data);
         }).catch(e => {
-            res.status(400).send({ message: 'falha ao cadastrar!', data: e });
+            res.status(400).send(e);
         });
 }
 
@@ -76,5 +76,3 @@ exports.put = (req, res, next) => {
 exports.delete = (req, res, next) => {
     res.status(200).send(req.body);
 }
-
-		
