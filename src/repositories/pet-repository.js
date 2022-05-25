@@ -3,44 +3,48 @@
 const mongoose = require('mongoose');
 const Pet = mongoose.model('Pet');
 
-exports.get = () => {
-    return Pet
+exports.get = async () => {
+    const res = await Pet
         .find({
             active: true
         }, 'name gender species breed favorite status image');
+    return res;
 }
 
-exports.getByName = (name) => {
-    return Pet
+exports.getByName = async (name) => {
+    const res = await Pet
         .findOne({
             name: name,
             active: true
         }, 'name gender species breed favorite status image');
+    return res;
 }
 
-exports.getBySpecie = (species) => {
-    return Pet
+exports.getBySpecie = async (species) => {
+    const res = await Pet
         .find({
             species: species,
             active: true
         }, 'name gender species breed favorite status image');
+    return res;
 }
 
-exports.getByFav = (favorite) => {
-    return Pet
+exports.getByFav = async (favorite) => {
+    const res = await Pet
         .find({
             favorite: favorite,
             active: true
         }, 'name gender species breed age city favorite status image');
+    return res;
 }
 
-exports.create = (data) => {
+exports.create = async (data) => {
     let pet = new Pet(data);
-    return pet.save();
+    await pet.save();
 }
 
-exports.update = (id, data) => {
-    return Pet
+exports.update = async (id, data) => {
+    await Pet
         .findByIdAndUpdate(id, {
             $set: {
                 name: data.name,
@@ -53,7 +57,7 @@ exports.update = (id, data) => {
         });
 }
 
-exports.delete = (id) => {
-    return Pet
-    .findOneAndRemove(id);
+exports.delete = async (id) => {
+    await Pet
+        .findOneAndRemove(id);
 }
