@@ -14,6 +14,7 @@ mongoose.connect(`mongodb+srv://${dbUser}:${dbPasswd}@quatropatas.zjhon.mongodb.
 
 //|-/ Models
 const Pet = require('./models/pet');
+const Company = require('./models/company');
 
 
 //|-/ Routes
