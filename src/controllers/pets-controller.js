@@ -40,7 +40,7 @@ exports.getBySpecie = async (req, res, next) => {
 
 exports.getByFav = async (req, res, next) => {
     try {
-        let data = await repository.getByFav(req.params.favorite)
+        let data = await repository.getByFav(req.params.favorite);
         res.status(201).send(data);
     } catch (e) {
         res.status(500).send({
@@ -49,47 +49,41 @@ exports.getByFav = async (req, res, next) => {
     }
 }
 
-exports.post = (req, res, next) => {
-    repository
-        .create(req.body)
-        .then(x => {
-            res.status(201).send({
-                message: 'PEt cadastrado com sucesso!'
-            });
-        }).catch(e => {
-            res.status(400).send({
-                message: 'falha ao cadastrar!',
-                data: e
-            });
+exports.post = async(req, res, next) => {
+    try {
+        await repository.create(req.body);
+        res.status(201).send({
+            message: 'PEt cadastrado com sucesso!'
+    });
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua informação'
         });
+    }
 }
 
-exports.put = (req, res, next) => {
-    repository
-        .update(req.params.id, req.body)
-        .then(x => {
-            res.status(200).send({
-                message: 'Pet atualizado!'
-            });
-        }).catch(e => {
-            res.status(400).send({
-                message: 'Falha ao atualizar...',
-                data: e
-            });
+exports.put = async(req, res, next) => {
+    try {
+        await repository.update(req.params.id, req.body);
+        res.status(200).send({
+            message: 'Pet atualizado!'
         });
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua informação'
+        });
+    }
 }
 
-exports.delete = (req, res, next) => {
-    repository
-        .delete(req.body.id)
-        .then(x => {
-            res.status(200).send({
-                message: 'Pet removido!'
-            });
-        }).catch(e => {
-            res.status(400).send({
-                message: 'Falha ao remover Pet...',
-                data: e
-            });
+exports.delete = async(req, res, next) => {
+    try {
+        await repository.delete(req.body.id);
+        res.status(200).send({
+            message: 'Pet removido!'
+    });
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua informação'
         });
+    }
 }
