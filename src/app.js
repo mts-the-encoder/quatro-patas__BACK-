@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const postgres = require('pg');
-const sequelize = require('sequelize');
+const config = require('./config');
 
 const app = express();
 const router = express.Router();
@@ -10,7 +9,7 @@ const router = express.Router();
 //|-/ DbConnect - Mongo
 const dbUser = 'mts';
 const dbPasswd = 'urubu100';
-mongoose.connect(`mongodb+srv://${dbUser}:${dbPasswd}@quatropatas.zjhon.mongodb.net/Data`);
+mongoose.connect(config.connectionString);
 
 //|-/ Models
 const Pet = require('./models/pet');
