@@ -5,7 +5,7 @@ const Company = mongoose.model('Company');
 
 exports.get = async () => {
     const res = await Company
-        .find({
+        .findOne({
             active: true
         }, 'name adress number district zipCode city state phoneOne phoneTwo');
     return res;
