@@ -29,6 +29,8 @@
     "mongoose": "^6.3.4",
     "nodemon": "^2.0.16",
     "sendgrid": "^5.2.3",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.4.0",
     "uuid": "^8.3.2"
   }
 }

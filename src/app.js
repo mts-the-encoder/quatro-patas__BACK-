@@ -3,6 +3,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
 
+//|-/ SWAGGER
+const swaggerUI = require('swagger-ui-express'); 
+const swaggerJsDoc = require('swagger-jsdoc');
+
 const app = express();
 const router = express.Router();
 
