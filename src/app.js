@@ -3,12 +3,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
 
+const app = express();
+const router = express.Router();
+
 //|-/ SWAGGER
 const swaggerUI = require('swagger-ui-express'); 
 const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerDoc = require('../swagger.json');
 
-const app = express();
-const router = express.Router();
+const specs = swaggerJsDoc(swaggerDoc);
 
 //|-/ DbConnect - Mongo
 const dbUser = 'mts';
@@ -29,6 +32,7 @@ app.use(bodyParser.json({
 }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs));
 
 //|-/ CORS
 app.use(function (req, res, next) {
