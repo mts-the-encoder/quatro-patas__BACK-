@@ -56,7 +56,6 @@ const controller = require('../controllers/pets-controller');
  * tags: 
  *  name: Pets
  *  description: 4Patas PETS API
- * 
  */
 
 /**
@@ -208,7 +207,7 @@ router.post('/', controller.post);
  *            schema:
  *              $ref: '#/components/schemas/Pets'
  *      404:
- *        description: The book was not found
+ *        description: The pet was not found
  *      500:
  *        description: Some error happened
  */
@@ -219,7 +218,7 @@ router.put('/:id', controller.put);
  * @swagger
  * /pets/{id}:
  *   delete:
- *     summary: Remove the book by id
+ *     summary: Remove the pet by id
  *     tags: [Pets]
  *     parameters:
  *       - in: path
