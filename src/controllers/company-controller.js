@@ -8,7 +8,7 @@ exports.get = async (req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição!'
+            message: 'Failed to process your request!'
         });
     }
 }
@@ -18,11 +18,11 @@ exports.post = async(req, res, next) => {
     try {
         await repository.create(req.body);
         res.status(201).send({
-            message: 'Empresa cadastrada com sucesso!'
+            message: 'Company registered successfully!'
     });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua informação'
+            message: 'Failed to process your request :/'
         });
     }
 }
@@ -31,11 +31,11 @@ exports.put = async(req, res, next) => {
     try {
         await repository.update(req.params.id, req.body);
         res.status(200).send({
-            message: 'Empresa atualizada!'
+            message: 'Company successfully updated!'
         });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua informação'
+            message: 'Failed to process your request :/'
         });
     }
 }
@@ -44,11 +44,11 @@ exports.delete = async(req, res, next) => {
     try {
         await repository.delete(req.params.id);
         res.status(200).send({
-            message: 'Empresa removida!'
+            message: 'Company successfully removed!'
     });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua informação'
+            message: 'Failed to process your request :/'
         });
     }
 }

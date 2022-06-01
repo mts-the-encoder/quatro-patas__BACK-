@@ -20,25 +20,27 @@ const controller = require('../controllers/pets-controller');
  *         - favorite
  *         - status
  *         - image
+ * 
  *       properties:
  *         name:
- *              ype: string,
+ *              type: string
  *         gender:
- *              type: string,
+ *              type: string
  *         species:
- *              type: string,
+ *              type: string
  *         breed:
- *              type: string,
+ *              type: string
  *         age:
- *              type: number,
+ *              type: number
  *         city:
- *              type: string,
+ *              type: string
  *         favorite: 
- *              type: boolean,
+ *              type: boolean
  *         status:
- *              type: boolean,
+ *              type: boolean
  *         image:
- *              type: string,
+ *              type: string
+ * 
  *       example:
  *         name: Name,
  *         gender: Gender,
@@ -66,7 +68,7 @@ const controller = require('../controllers/pets-controller');
  *          tags: [Pets]
  *          responses:
  *              200:
- *                  description: The list of the pets
+ *                  description: PETS-
  *                  content:
  *                      swagger/json:
  *                          schemas:
@@ -81,7 +83,7 @@ router.get('/', controller.get);
  * @swagger
  * /pets/{name}:
  *   get:
- *     summary: Get the pet by name
+ *     summary: GET the pet by name
  *     tags: [Pets]
  *     parameters:
  *       - in: path
@@ -89,16 +91,16 @@ router.get('/', controller.get);
  *         schema:
  *           type: string
  *         required: true
- *         description: The pet name
+ *         description: GET The pet by name
  *     responses:
  *       200:
- *         description: The pet by name
+ *         description: PET-
  *         contens:
  *           swagger/json:
  *             schema:
  *               $ref: '#/components/schemas/Pets'
  *       404:
- *         description: The pet was not found
+ *         description: This pet was not found
  */
 
 router.get('/:name', controller.getByName);
@@ -107,7 +109,7 @@ router.get('/:name', controller.getByName);
  * @swagger
  * /pets/species/{species}:
  *   get:
- *     summary: Get the pet by name
+ *     summary: GET the pet by specie
  *     tags: [Pets]
  *     parameters:
  *       - in: path
@@ -115,16 +117,16 @@ router.get('/:name', controller.getByName);
  *         schema:
  *           type: string
  *         required: true
- *         description: The pet Species
+ *         description: GET The pet Species
  *     responses:
  *       200:
- *         description: The pet by Specie
+ *         description: PETS-
  *         contens:
  *           swagger/json:
  *             schema:
  *               $ref: '#/components/schemas/Pets'
  *       404:
- *         description: The pet was not found
+ *         description: The pets(pets) was not found
  */
 
 router.get('/species/:species', controller.getBySpecie);
@@ -133,7 +135,7 @@ router.get('/species/:species', controller.getBySpecie);
  * @swagger
  * /pets/favorites/{favorite}:
  *   get:
- *     summary: Get the pet by name
+ *     summary: GET the pet if is Fav
  *     tags: [Pets]
  *     parameters:
  *       - in: path
@@ -141,16 +143,16 @@ router.get('/species/:species', controller.getBySpecie);
  *         schema:
  *           type: string
  *         required: true
- *         description: The favorites pets
+ *         description: GET The favorites pets
  *     responses:
  *       200:
- *         description: The pet by Favs
+ *         description: PETS-
  *         contens:
  *           swagger/json:
  *             schema:
  *               $ref: '#/components/schemas/Pets'
  *       404:
- *         description: The pet was not found
+ *         description: The pet(pets) was not found
  */
 
 router.get('/favorites/:favorite', controller.getByFav);
@@ -159,7 +161,7 @@ router.get('/favorites/:favorite', controller.getByFav);
  * @swagger
  * /pets:
  *   post:
- *     summary: Create a new pet
+ *     summary: Register a new pet
  *     tags: [Pets]
  *     requestBody:
  *       required: true
@@ -169,13 +171,13 @@ router.get('/favorites/:favorite', controller.getByFav);
  *             $ref: '#/components/schemas/Pets'
  *     responses:
  *       200:
- *         description: The pet was successfully created
+ *         description: The pet was successfully registered
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Pets'
  *       500:
- *         description: Some server error
+ *         description: Some server error :/
  */
 
 router.post('/', controller.post);
@@ -192,7 +194,7 @@ router.post('/', controller.post);
  *        schema:
  *          type: string
  *        required: true
- *        description: The pet id
+ *        description: PUT The pet by id
  *    requestBody:
  *      required: true
  *      content:
@@ -207,7 +209,7 @@ router.post('/', controller.post);
  *            schema:
  *              $ref: '#/components/schemas/Pets'
  *      404:
- *        description: The pet was not found
+ *        description: The pet was not found :/
  *      500:
  *        description: Some error happened
  */
@@ -226,13 +228,13 @@ router.put('/:id', controller.put);
  *         schema:
  *           type: string
  *         required: true
- *         description: The pet id
+ *         description: DELETE The pet by id
  * 
  *     responses:
  *       200:
  *         description: The pet was deleted
  *       404:
- *         description: The pet was not found
+ *         description: The pet was not found :/
  */
 
 router.delete('/:id', controller.delete);

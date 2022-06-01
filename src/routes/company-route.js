@@ -66,7 +66,7 @@ const controller = require('../controllers/company-controller');
  *          tags: [Companies]
  *          responses:
  *              200:
- *                  description: The list of the companies
+ *                  description: COMPANIES-
  *                  content:
  *                      swagger/json:
  *                          schemas:
@@ -97,7 +97,7 @@ router.get('/', controller.get);
  *             schema:
  *               $ref: '#/components/schemas/Companies'
  *       500:
- *         description: Some server error
+ *         description: Some server error :/
  */
 
 router.post('/', controller.post);
@@ -114,7 +114,7 @@ router.post('/', controller.post);
  *        schema:
  *          type: string
  *        required: true
- *        description: The company id
+ *        description: PUT - The company by id
  *    requestBody:
  *      required: true
  *      content:
@@ -123,15 +123,15 @@ router.post('/', controller.post);
  *            $ref: '#/components/schemas/Companies'
  *    responses:
  *      200:
- *        description: The company was updated
+ *        description: The company was updated 
  *        content:
  *          application/json:
  *            schema:
  *              $ref: '#/components/schemas/Companies'
  *      404:
- *        description: The company was not found
+ *        description: The company was not found :/ 
  *      500:
- *        description: Some error happened
+ *        description: Some error happened :/
  */
 
 router.put('/:id', controller.put);
@@ -148,13 +148,12 @@ router.put('/:id', controller.put);
  *         schema:
  *           type: string
  *         required: true
- *         description: The company id
- * 
+ *         description: The company by id
  *     responses:
  *       200:
- *         description: The company was deleted
+ *         description: The company was deleted :/
  *       404:
- *         description: The company was not found
+ *         description: The company was not found :/
  */
 
 

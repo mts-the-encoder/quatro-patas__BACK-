@@ -11,7 +11,7 @@ exports.get = async (req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição!'
+            message: 'Failed to process your request!'
         });
     }
 }
@@ -22,7 +22,7 @@ exports.getByName = async (req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição!'
+            message: 'Failed to process your request!'
         });
     }
 
@@ -34,7 +34,7 @@ exports.getBySpecie = async (req, res, next) => {
         res.status(201).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição!'
+            message: 'FFailed to process your request!'
         });
     }
 }
@@ -45,7 +45,7 @@ exports.getByFav = async (req, res, next) => {
         res.status(201).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição!'
+            message: 'Failed to process your request!'
         });
     }
 }
@@ -83,12 +83,12 @@ exports.post = async(req, res, next) => {
             image: 'https://mts4.blob.core.windows.net/quatro-patas/' + filename
         });
         res.status(201).send({
-            message: 'PEt cadastrado com sucesso!'
+            message: 'PEt successfully registered!'
     });
     } catch (e) {
         console.log(e);
         res.status(500).send({
-            message: 'Falha ao processar sua informação'
+            message: 'Failed to process your request!'
         });
     }
 }
@@ -97,11 +97,11 @@ exports.put = async(req, res, next) => {
     try {
         await repository.update(req.params.id, req.body);
         res.status(200).send({
-            message: 'Pet atualizado!'
+            message: 'Pet successfully updated!'
         });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua informação'
+            message: 'Failed to process your request!'
         });
     }
 }
@@ -110,11 +110,11 @@ exports.delete = async(req, res, next) => {
     try {
         await repository.delete(req.params.id);
         res.status(200).send({
-            message: 'Pet removido!'
+            message: 'Pet successfully removed!'
     });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua informação'
+            message: 'Failed to process your request!'
         });
     }
 }
