@@ -44,10 +44,10 @@ const controller = require('../controllers/pets-controller');
  *         gender: Gender,
  *         species: Species,
  *         breed: Breed,
- *         age: age,
+ *         age: 0,
  *         city: City,
- *         favorite:  Favorite,
- *         status: Status,
+ *         favorite:  false,
+ *         status: true,
  *         image: Image,
  */
 
@@ -64,6 +64,7 @@ const controller = require('../controllers/pets-controller');
  * /pets:
  *      get:
  *          summary: All Pets of 4Patas
+ *          tags: [Pets]
  *          responses:
  *              200:
  *                  description: The list of the pets
@@ -76,11 +77,165 @@ const controller = require('../controllers/pets-controller');
  */
 
 router.get('/', controller.get);
+
+/**
+ * @swagger
+ * /pets/{name}:
+ *   get:
+ *     summary: Get the pet by name
+ *     tags: [Pets]
+ *     parameters:
+ *       - in: path
+ *         name: name
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The pet name
+ *     responses:
+ *       200:
+ *         description: The pet by name
+ *         contens:
+ *           swagger/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Pets'
+ *       404:
+ *         description: The pet was not found
+ */
+
 router.get('/:name', controller.getByName);
+
+/**
+ * @swagger
+ * /pets/species/{species}:
+ *   get:
+ *     summary: Get the pet by name
+ *     tags: [Pets]
+ *     parameters:
+ *       - in: path
+ *         name: species
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The pet Species
+ *     responses:
+ *       200:
+ *         description: The pet by Specie
+ *         contens:
+ *           swagger/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Pets'
+ *       404:
+ *         description: The pet was not found
+ */
+
 router.get('/species/:species', controller.getBySpecie);
+
+/**
+ * @swagger
+ * /pets/favorites/{favorite}:
+ *   get:
+ *     summary: Get the pet by name
+ *     tags: [Pets]
+ *     parameters:
+ *       - in: path
+ *         name: favorite
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The favorites pets
+ *     responses:
+ *       200:
+ *         description: The pet by Favs
+ *         contens:
+ *           swagger/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Pets'
+ *       404:
+ *         description: The pet was not found
+ */
+
 router.get('/favorites/:favorite', controller.getByFav);
+
+/**
+ * @swagger
+ * /pets:
+ *   post:
+ *     summary: Create a new pet
+ *     tags: [Pets]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Pets'
+ *     responses:
+ *       200:
+ *         description: The pet was successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Pets'
+ *       500:
+ *         description: Some server error
+ */
+
 router.post('/', controller.post);
+
+/**
+ * @swagger
+ * /pets/{id}:
+ *  put:
+ *    summary: Update the pet by the id
+ *    tags: [Pets]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The pet id
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Pets'
+ *    responses:
+ *      200:
+ *        description: The pet was updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Pets'
+ *      404:
+ *        description: The book was not found
+ *      500:
+ *        description: Some error happened
+ */
+
 router.put('/:id', controller.put);
+
+/**
+ * @swagger
+ * /pets/{id}:
+ *   delete:
+ *     summary: Remove the book by id
+ *     tags: [Pets]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The pet id
+ * 
+ *     responses:
+ *       200:
+ *         description: The pet was deleted
+ *       404:
+ *         description: The pet was not found
+ */
+
 router.delete('/:id', controller.delete);
 
 module.exports = router;

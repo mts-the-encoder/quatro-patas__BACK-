@@ -59,5 +59,5 @@ exports.update = async (id, data) => {
 
 exports.delete = async (id) => {
     await Pet
-        .findOneAndRemove(id);
+        .findByIdAndDelete(id);
 }
