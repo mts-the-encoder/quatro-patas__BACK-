@@ -5,22 +5,74 @@ const router = express.Router();
 const controller = require('../controllers/pets-controller'); 
 
 /**
- * @swagger 
- *  components:
+ * @swagger
+ * components:
  *   schemas:
  *     Pets:
  *       type: object
  *       required:
  *         - name
+ *         - gender
+ *         - species
+ *         - breed
+ *         - age
+ *         - city
+ *         - favorite
+ *         - status
+ *         - image
  *       properties:
- *         id:
- *           type: string
  *         name:
- *           type: string
+ *              ype: string,
+ *         gender:
+ *              type: string,
+ *         species:
+ *              type: string,
+ *         breed:
+ *              type: string,
+ *         age:
+ *              type: number,
+ *         city:
+ *              type: string,
+ *         favorite: 
+ *              type: boolean,
+ *         status:
+ *              type: boolean,
+ *         image:
+ *              type: string,
  *       example:
- *         id: d5fE_asz
- *         name: The New Turing Omnibus
+ *         name: Name,
+ *         gender: Gender,
+ *         species: Species,
+ *         breed: Breed,
+ *         age: age,
+ *         city: City,
+ *         favorite:  Favorite,
+ *         status: Status,
+ *         image: Image,
+ */
+
+/**
+ * @swagger
+ * tags: 
+ *  name: Pets
+ *  description: 4Patas PETS API
  * 
+ */
+
+/**
+ * @swagger
+ * /pets:
+ *      get:
+ *          summary: All Pets of 4Patas
+ *          responses:
+ *              200:
+ *                  description: The list of the pets
+ *                  content:
+ *                      swagger/json:
+ *                          schemas:
+ *                          type: array
+ *                          items:
+ *                              $ref: '#/components/schemas/Pets'
  */
 
 router.get('/', controller.get);
