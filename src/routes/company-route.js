@@ -40,15 +40,15 @@ const controller = require('../controllers/company-controller');
  *         phoneTwo:
  *              type: string,
  *       example:
- *         name: Name,
- *         adress: Adress,
- *         number: Number,
- *         district: District,
- *         zipCode: ZipCode,
- *         city: City,
- *         state:  State,
- *         phoneOne: PhoneOne,
- *         phoneTwo: PhoneOne,
+ *         name: Name
+ *         adress: Adress
+ *         number: Number
+ *         district: District
+ *         zipCode: ZipCode
+ *         city: City
+ *         state:  State
+ *         phoneOne: PhoneOne
+ *         phoneTwo: PhoneOne
  */
 
 /**

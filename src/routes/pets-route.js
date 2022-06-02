@@ -42,15 +42,15 @@ const controller = require('../controllers/pets-controller');
  *              type: string
  * 
  *       example:
- *         name: Name,
- *         gender: Gender,
- *         species: Species,
- *         breed: Breed,
- *         age: 0,
- *         city: City,
- *         favorite:  false,
- *         status: true,
- *         image: Image,
+ *         name: Name
+ *         gender: Gender
+ *         species: Species
+ *         breed: Breed
+ *         age: 0
+ *         city: City
+ *         favorite:  false
+ *         status: true
+ *         image: Image
  */
 
 /**
