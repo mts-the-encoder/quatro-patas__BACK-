@@ -20,7 +20,7 @@ const controller = require('../controllers/pets-controller');
  *         - favorite
  *         - status
  *         - image
- * 
+ *  
  *       properties:
  *         name:
  *              type: string
@@ -40,7 +40,7 @@ const controller = require('../controllers/pets-controller');
  *              type: boolean
  *         image:
  *              type: string
- * 
+ *  
  *       example:
  *         name: Name
  *         gender: Gender
@@ -58,7 +58,7 @@ const controller = require('../controllers/pets-controller');
  * tags: 
  *  name: Pets
  *  description: 4Patas PETS API
- */
+ */ 
 
 /**
  * @swagger
@@ -75,7 +75,7 @@ const controller = require('../controllers/pets-controller');
  *                          type: array
  *                          items:
  *                              $ref: '#/components/schemas/Pets'
- */
+ */ 
 
 router.get('/', controller.get);
 
@@ -101,7 +101,7 @@ router.get('/', controller.get);
  *               $ref: '#/components/schemas/Pets'
  *       404:
  *         description: This pet was not found
- */
+ */ 
 
 router.get('/:name', controller.getByName);
 
@@ -127,7 +127,7 @@ router.get('/:name', controller.getByName);
  *               $ref: '#/components/schemas/Pets'
  *       404:
  *         description: The pets(pets) was not found
- */
+ */ 
 
 router.get('/species/:species', controller.getBySpecie);
 
@@ -153,7 +153,7 @@ router.get('/species/:species', controller.getBySpecie);
  *               $ref: '#/components/schemas/Pets'
  *       404:
  *         description: The pet(pets) was not found
- */
+ */ 
 
 router.get('/favorites/:favorite', controller.getByFav);
 
@@ -178,7 +178,7 @@ router.get('/favorites/:favorite', controller.getByFav);
  *               $ref: '#/components/schemas/Pets'
  *       500:
  *         description: Some server error :/
- */
+ */ 
 
 router.post('/', controller.post);
 
@@ -212,7 +212,7 @@ router.post('/', controller.post);
  *        description: The pet was not found :/
  *      500:
  *        description: Some error happened
- */
+ */ 
 
 router.put('/:id', controller.put);
 
@@ -229,13 +229,13 @@ router.put('/:id', controller.put);
  *           type: string
  *         required: true
  *         description: DELETE The pet by id
- * 
+ *  
  *     responses:
  *       200:
  *         description: The pet was deleted
  *       404:
  *         description: The pet was not found :/
- */
+ */ 
 
 router.delete('/:id', controller.delete);
 
