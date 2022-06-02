@@ -11,6 +11,9 @@ JavaScript
 ## Techs
 Node.Js
 
+## Mongo connection
+- mongodb+srv://mts:$urubu100@quatropatas.zjhon.mongodb.net/Data
+
 ## Setup:
 npm install<br>
 npm start
